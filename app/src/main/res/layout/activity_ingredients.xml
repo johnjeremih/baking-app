@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:id="@+id/frame">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/image_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_card" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient_image"/>
+
+        <RelativeLayout
+            android:id="@+id/widget_click_handler"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignBottom="@id/image_recipe"
+            android:layout_alignEnd="@id/image_recipe">
+
+            <ImageView
+                android:id="@+id/widget_list_icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/half_padding"
+                android:layout_marginEnd="@dimen/padding"
+                android:src="@drawable/check_list_unmarked"
+                />
+
+        </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+    </FrameLayout>
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/half_half_padding"
+        android:id="@+id/parent_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/frame"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding">
+
+        <LinearLayout
+            android:id="@+id/chil1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+            <TextView
+                android:id="@+id/text_ingredients"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_half_padding"
+                android:layout_weight="6.7"
+                android:text="@string/ingredients"
+                android:textColor="@color/background"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/quantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/text_ingredients"
+                android:layout_toLeftOf="@id/measure"
+                android:layout_weight="1.6"
+                android:paddingRight="@dimen/half_padding"
+                android:text="@string/quantity" />
+
+            <TextView
+                android:id="@+id/measure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/text_ingredients"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="2"
+                android:text="@string/measure" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/child2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chil1">
+
+            <View
+                android:id="@+id/view_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/text_ingredients"
+                android:background="@android:color/darker_gray" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/child3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/child2">
+
+            <GridView
+
+                android:id="@+id/ingredients_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="1"
+                android:textAlignment="center"
+                android:textSize="20dp">
+
+
+            </GridView>
+
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

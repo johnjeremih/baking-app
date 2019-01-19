@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/textColor"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.NoActionBar">
+    <FrameLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+        android:id="@+id/text_widget_name_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:text="@string/appwidget_text"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:onClick="onClickHandlerIngredients"
+        />
+
+        <TextView
+            android:id="@+id/empty_text_recipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="@string/empty_widget"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="gone"
+            />
+
+
+
+
+    </FrameLayout>
+
+
+    <LinearLayout android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ingredient_trigger_view"
+
+        >
+        <ListView android:id="@+id/widgetListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/textColor"
+            android:dividerHeight="1dp"
+            android:divider="#eeeeee"
+            tools:listitem="@layout/collection_widget_list_item"
+         />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="5"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/empty_text_recipe_trigger"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="@string/click_recipe"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:onClick="onClickHandler"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

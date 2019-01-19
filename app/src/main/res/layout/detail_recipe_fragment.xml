@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DetailRecipeActivity"
+    >
+
+    <TextView
+
+        android:id="@+id/ingredients_button"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_width"
+        android:gravity="center"
+        android:layout_marginLeft="@dimen/padding"
+        android:layout_marginRight="@dimen/padding"
+        android:textColor="@color/textColor"
+        android:text="@string/recipe_ingredients"
+        android:textAlignment="center"
+        android:layout_marginTop="@dimen/padding"
+        android:textSize="@dimen/title_text_size"
+        android:textStyle="bold"
+        android:background="@drawable/rounded_corner"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/steps"
+        android:textAlignment="center"
+        android:textSize="@dimen/title_text_size" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginRight="@dimen/padding"
+        android:layout_marginLeft="@dimen/padding"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_steps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="1">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

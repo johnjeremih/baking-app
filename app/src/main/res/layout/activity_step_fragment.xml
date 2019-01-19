@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+                        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/video_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding"
+                app:cardBackgroundColor="@android:color/black"
+                android:layout_gravity="center">
+
+                <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:id="@+id/video_player_view"
+                    app:resize_mode="fixed_height"
+                    app:auto_show="false"
+                    />
+                <ImageView
+                    android:id="@+id/space_empty_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="@color/textColor"
+                    android:visibility="gone"/>
+
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/short_description_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recipe_step_instruction"
+                android:gravity="center"
+                android:textSize="25dp"/>
+
+            <LinearLayout
+                android:id="@+id/description_linear_layout_view"
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+            <android.support.v7.widget.CardView
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/half_padding"
+                android:layout_marginBottom="@dimen/padding"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_marginLeft="@dimen/padding">
+
+                <TextView
+                    android:id="@+id/description_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goofy_text"
+                    android:textAlignment="center"
+                    android:layout_marginRight="@dimen/half_padding"
+                    android:layout_marginLeft="@dimen/half_padding"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/padding"
+
+                    />
+
+
+            </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginRight="@dimen/padding"
+                android:layout_marginLeft="@dimen/padding">
+
+
+                <Button
+                    android:id="@+id/step_previous_instruction"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    style="@style/paddingStyle"
+                    android:text="@string/navigation_previous_button"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/half_padding"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/step_next_instruction"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    style="@style/paddingStyle"
+                    android:text="@string/navigation_next_button"
+                    android:textAlignment="center"
+                    android:layout_marginTop="@dimen/half_padding"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
