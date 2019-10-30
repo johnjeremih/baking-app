@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_steps_linear_layout">
 
-<android.support.v7.widget.CardView
+<androidx.cardview.widget.CardView
     android:id="@+id/step_card"
     android:layout_width="match_parent"
     android:layout_height="60dp"
@@ -31,7 +31,7 @@
         android:textSize="20sp"
         tools:text="@string/app_name" />
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 
 
 </LinearLayout>

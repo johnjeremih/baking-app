@@ -1,16 +1,14 @@
 package com.johnny.john.bakingapp.activity;
 
 
-import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.GridView;
@@ -21,21 +19,14 @@ import android.widget.Toast;
 import com.johnny.john.bakingapp.R;
 import com.johnny.john.bakingapp.adapters.IngredientsAdapter;
 import com.johnny.john.bakingapp.data.Contractor.IngredientsEntry;
-import com.johnny.john.bakingapp.data.RecipeLoader;
 import com.johnny.john.bakingapp.model.Ingredients;
 import com.johnny.john.bakingapp.model.Recipe;
 import com.johnny.john.bakingapp.widget.RecipeWidgetProvider;
-
-import android.support.v4.app.LoaderManager;
-import android.support.v4.content.CursorLoader;
 
 import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.johnny.john.bakingapp.data.Contractor.BASE_CONTENT_URI;
-import static com.johnny.john.bakingapp.data.Contractor.PATH_WIDGET;
 
 public class IngredientsActivity extends AppCompatActivity {
 
