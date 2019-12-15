@@ -2,9 +2,6 @@ package com.johnny.john.bakingapp.fragments;
 
 import android.net.Uri;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,23 +11,24 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.exoplayer2.C;
-import com.google.android.exoplayer2.ExoPlayerFactory;
-import com.google.android.exoplayer2.SimpleExoPlayer;
-import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
-import com.google.android.exoplayer2.extractor.ExtractorsFactory;
-import com.google.android.exoplayer2.source.ExtractorMediaSource;
-import com.google.android.exoplayer2.source.MediaSource;
-import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
-import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
-import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.trackselection.TrackSelector;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
-import com.google.android.exoplayer2.upstream.BandwidthMeter;
-import com.google.android.exoplayer2.upstream.DataSource;
-import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
-import com.google.android.exoplayer2.util.Util;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.media2.exoplayer.external.ExoPlayerFactory;
+import androidx.media2.exoplayer.external.SimpleExoPlayer;
+import androidx.media2.exoplayer.external.extractor.DefaultExtractorsFactory;
+import androidx.media2.exoplayer.external.extractor.ExtractorsFactory;
+import androidx.media2.exoplayer.external.source.ExtractorMediaSource;
+import androidx.media2.exoplayer.external.source.MediaSource;
+import androidx.media2.exoplayer.external.trackselection.AdaptiveTrackSelection;
+import androidx.media2.exoplayer.external.trackselection.DefaultTrackSelector;
+import androidx.media2.exoplayer.external.trackselection.TrackSelection;
+import androidx.media2.exoplayer.external.trackselection.TrackSelector;
+import androidx.media2.exoplayer.external.upstream.BandwidthMeter;
+import androidx.media2.exoplayer.external.upstream.DataSource;
+import androidx.media2.exoplayer.external.upstream.DefaultBandwidthMeter;
+import androidx.media2.exoplayer.external.upstream.DefaultDataSourceFactory;
+import androidx.media2.exoplayer.external.util.Util;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.johnny.john.bakingapp.R;
@@ -49,8 +47,7 @@ public class FullStepsFragment extends Fragment {
     private static final String CURRENT_VIDEO_PROGRESS = "CVP";
     private List<Steps> mSteps;
     private int position;
-    public static final String TEXT_ID_LIST = "text_ids";
-    public static final String LIST_INDEX = "list_index";
+    private static final String LIST_INDEX = "list_index";
     @BindView(R.id.step_next_instruction)
     Button nextButton;
     @BindView(R.id.step_previous_instruction)
@@ -60,7 +57,7 @@ public class FullStepsFragment extends Fragment {
     @BindView(R.id.description_tv)
     TextView descriptionView;
     @BindView(R.id.video_player_view)
-    SimpleExoPlayerView mExoPlayerView;
+    SimpleExoPlayer mExoPlayerView;
     @BindView(R.id.description_linear_layout_view)
     LinearLayout mLinearLayoutDescription;
 
@@ -208,20 +205,20 @@ public class FullStepsFragment extends Fragment {
 
     private void hideVideo() {
         if (mSteps.get(position).getVideoURL().equals("") && mSteps.get(position).getThumbnailURL().equals("")) {
-            mExoPlayerView.setVisibility(View.GONE);
+           // mExoPlayerView
             shortDescriptionView.setPadding(0, 350, 0, 0);
         } else {
             shortDescriptionView.setPadding(0, 0, 0, 0);
-            mExoPlayerView.setVisibility(View.VISIBLE);
+          //  mExoPlayerView.setVisibility(View.VISIBLE);
             if (mExoPlayer != null) {
-                mExoPlayer.seekTo(0);
+               // mExoPlayer.seekTo(0);
             }
         }
     }
 
     private void SmallerScreens() {
-        mExoPlayerView.getLayoutParams().height = 4 * 170;
-        mExoPlayerView.requestLayout();
+      //  mExoPlayerView.getpar().height = 4 * 170;
+    //    mExoPlayerView.requestLayout();
         mLinearLayoutDescription.getLayoutParams().height = 500;
         mLinearLayoutDescription.requestLayout();
         nextButton.setVisibility(View.VISIBLE);
@@ -229,8 +226,8 @@ public class FullStepsFragment extends Fragment {
     }
 
     private void LargerScreens() {
-        mExoPlayerView.getLayoutParams().height = 4 * 170;
-        mExoPlayerView.requestLayout();
+    //    mExoPlayerView.getLayoutParams().height = 4 * 170;
+   //     mExoPlayerView.requestLayout();
         mLinearLayoutDescription.getLayoutParams().height = 400;
         mLinearLayoutDescription.requestLayout();
         nextButton.setVisibility(View.GONE);
@@ -300,7 +297,7 @@ public class FullStepsFragment extends Fragment {
             TrackSelector trackSelector =
                     new DefaultTrackSelector(videoTrackSelectionFactory);
 
-            mExoPlayer = ExoPlayerFactory.newSimpleInstance(getContext(), trackSelector);
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(Objects.requireNonNull(getContext()), trackSelector);
             mExoPlayerView.setUseController(true);
             mExoPlayerView.requestFocus();
             mExoPlayerView.setPlayer(mExoPlayer);
